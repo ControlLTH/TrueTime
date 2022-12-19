@@ -1,0 +1,204 @@
+\relax 
+\bibstyle{LongLabels}
+\citation{simulink}
+\citation{hen+03}
+\citation{cer+03}
+\citation{hen+02ifac}
+\citation{and+05}
+\@writefile{toc}{\contentsline {section}{\numberline {1.}{Introduction}}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.}{Getting Started}}{7}}
+\newlabel{sec:start}{{2}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}{Compilation}}{7}}
+\newlabel{sec:start_compile}{{2.1}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The \textsc  {TrueTime} 2.0 block library.}}{8}}
+\newlabel{fig:library}{{1}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.}{Using the Simulator}}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.}{Writing Code Functions}}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}{Writing a Matlab Code Function}}{8}}
+\newlabel{sec:mcode}{{4.1}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces A \textsc  {TrueTime} Kernel block connected to a continuous plant.}}{9}}
+\newlabel{fig:ex}{{2}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The execution of user code is modeled by a sequence of segments executed in order by the kernel.}}{9}}
+\newlabel{fig:timeline}{{3}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}{Writing a C++ Code Function}}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}{Calling Simulink Block Diagrams}}{10}}
+\@writefile{lot}{\contentsline {listing}{\numberline {1}{\ignorespaces Example of a P-controller code function written in Matlab code.}}{10}}
+\newlabel{list:code1}{{1}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Controllers represented using ordinary discrete Simulink blocks may be called from within the code functions. The only requirement is that the blocks are discrete with the sample time set to one.}}{11}}
+\newlabel{fig:piblock}{{4}{11}}
+\@writefile{lot}{\contentsline {listing}{\numberline {2}{\ignorespaces Simulink block diagrams are called from within code function using the function \texttt  {ttCallBlockSystem}.}}{11}}
+\newlabel{list:code3}{{2}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.}{Initialization}}{12}}
+\newlabel{sec:initialization}{{5}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}{Writing a Matlab Initialization Script}}{12}}
+\newlabel{sec:minit}{{5.1}{12}}
+\@writefile{lot}{\contentsline {listing}{\numberline {3}{\ignorespaces Example of a \textsc  {TrueTime} initialization script in the Matlab version. The kernel is initialized using the function \texttt  {ttInitKernel}, and a periodic task is created that uses the P-controller code function from Listing\nobreakspace  {}1\hbox {}. The period of the controller is passed to the initialization script as a parameter.}}{12}}
+\newlabel{list:init1}{{3}{12}}
+\@writefile{lot}{\contentsline {listing}{\numberline {4}{\ignorespaces Template for writing initialization scripts in C++. The final script is actually a complete Simulink S-function, since the included file, \texttt  {ttkernel.cpp}, contains the Simulink callback functions that implement the kernel.}}{13}}
+\newlabel{list:template}{{4}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}{Writing a C++ Initialization Script}}{13}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.}{Compilation}}{13}}
+\newlabel{sec:compile}{{6}{13}}
+\@writefile{lot}{\contentsline {listing}{\numberline {5}{\ignorespaces Example of a \textsc  {TrueTime} initialization script in the C++ version. Corresponds to the Matlab version from Listing\nobreakspace  {}3\hbox {}.}}{14}}
+\newlabel{list:init2}{{5}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The dialog of the \textsc  {TrueTime} kernel block.}}{15}}
+\newlabel{fig:kdialog}{{5}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.}{The \textsc  {TrueTime} Kernel}}{15}}
+\newlabel{sec:kernel}{{7}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}{Dynamic Voltage Scaling}}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The dialog of the \textsc  {TrueTime} network block.}}{16}}
+\newlabel{fig:nwdialog}{{6}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.}{The \textsc  {TrueTime} Network}}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}{CSMA/CD (Ethernet)}}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}{CSMA/AMP (CAN)}}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}{Round Robin (Token Bus)}}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}{FDMA}}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}{TDMA (TTP)}}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}{Switched Ethernet}}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.7}{FlexRay}}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.8}{PROFINET IO}}{19}}
+\citation{ohlin06lic}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The dialog of the \textsc  {TrueTime} wireless network block.}}{21}}
+\newlabel{fig:wnwdialog}{{7}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {9.}{The \textsc  {TrueTime} Wireless Network}}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}{802.11b/g (WLAN)}}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}{802.15.4 (ZigBee)}}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}{Calculation of Error Probabilities}}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Probability density function for a received symbol when using binary phase shift keying and additive white Gaussian noise. The line in the middle is the decision threshold. The area to the left of the threshold gives the probability of an erroneous decision. The area to the right gives the probability of a correct decision.}}{25}}
+\newlabel{fig:error}{{8}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}{User-Defined Path-Loss Function}}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Example of a Rayleigh fading using a radio frequency of 2.4 MHz. Nodes moving with a relative speed of 6 km/h, 1 second sampling interval and 10 random phasers.}}{26}}
+\newlabel{fig:rayleigh}{{9}{26}}
+\@writefile{lot}{\contentsline {listing}{\numberline {6}{\ignorespaces Example of path-loss function modeling Rayleigh fading.}}{26}}
+\newlabel{listing:example}{{6}{26}}
+\gdef \LT@i {\LT@entry 
+    {1}{75.23608pt}\LT@entry 
+    {1}{310.75392pt}}
+\@writefile{toc}{\contentsline {section}{\numberline {10.}{The \textsc  {TrueTime} Battery}}{27}}
+\newlabel{sec:battery}{{10}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {11.}{The \textsc  {TrueTime} Standalone Network Blocks}}{27}}
+\newlabel{sec:battery}{{11}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {12.}{Examples}}{27}}
+\newlabel{sec:examples}{{12}{27}}
+\citation{ast+hagg95}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.1}{PID-control of a DC-servo}}{28}}
+\newlabel{sec:pid}{{12.1}{28}}
+\newlabel{eq:servo}{{1}{28}}
+\newlabel{eq:ctrl}{{2}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces The dialog of the TrueTime Send block to the left, and the dialog of the TrueTime Receive block to the right.}}{29}}
+\newlabel{fig:ttgetmsgmask}{{10}{29}}
+\@writefile{lot}{\contentsline {listing}{\numberline {7}{\ignorespaces The initialization script for the PID-control example.}}{30}}
+\newlabel{list:servoinit}{{7}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces The \textsc  {TrueTime} model of the DC-servo system.}}{31}}
+\newlabel{fig:servo}{{11}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.2}{Task Scheduling and Control}}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces The \textsc  {TrueTime} model of the networked control system.}}{32}}
+\newlabel{fig:dist}{{12}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.3}{Networked Control System}}{32}}
+\newlabel{sec:dist}{{12.3}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.4}{Wireless Control System with Automatic Gain Control}}{33}}
+\newlabel{sec:wireless}{{12.4}{33}}
+\citation{per+roy99}
+\citation{AODVrfc}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.5}{Wireless Ad-hoc Routing Using AODV}}{34}}
+\newlabel{sec:AODV}{{12.5}{34}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.6}{Mote Soccer}}{36}}
+\@writefile{toc}{\contentsline {section}{\numberline {13.}{Kernel Implementation Details}}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Mote soccer.}}{37}}
+\newlabel{fig:soccer}{{13}{37}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.1}{Kernel Data Structures}}{37}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.2}{Task Model}}{39}}
+\citation{rtsj2000}
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.3}{The Kernel Function}}{40}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Scheduling hooks.}}{41}}
+\newlabel{fig:hooks}{{14}{41}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.4}{Timing}}{41}}
+\newlabel{sec:timing}{{13.4}{41}}
+\@writefile{toc}{\contentsline {section}{\numberline {14.}{\textsc  {TrueTime} Command Reference}}{42}}
+\newlabel{sec:command_reference}{{14}{42}}
+\@writefile{lot}{\contentsline {listing}{\numberline {8}{\ignorespaces Pseudo code for the \textsc  {TrueTime} kernel function.}}{43}}
+\newlabel{list:runkernel}{{8}{43}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Commands used to create and initialize \textsc  {TrueTime} objects, and to control the simulation.}}{44}}
+\newlabel{table:commands}{{2}{44}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Commands used to set and get task or kernel attributes.}}{45}}
+\newlabel{table:getset}{{3}{45}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Real-time primitives.}}{46}}
+\newlabel{table:prim}{{4}{46}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttAbortSimulation (TH)}{47}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttAnalogIn (TH)}{48}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttAnalogOut (TH)}{49}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttAttachCBS (I)}{50}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttAttachDLHandler (I)}{51}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttAttachHook (C++ only) (I)}{52}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttAttachNetworkHandler (I)}{53}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttAttachTBS (I)}{54}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttAttachTimeTriggeredDispatcher (I)}{55}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttAttachTriggerHandler (I)}{56}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttAttachWCETHandler (I)}{57}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCallBlockSystem (TH)}{58}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateCBS (I)}{59}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateEvent (I)}{60}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateHandler (I)}{61}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateJob (TH)}{62}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateLog (I)}{63}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateMailbox (I)}{65}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateMonitor (I)}{66}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreatePeriodicTask (I)}{67}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreatePeriodicTimer (ITH)}{68}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateSemaphore (I)}{69}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateTask (I)}{70}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateTBS (I)}{71}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateTimer (ITH)}{72}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCreateTimeTriggeredDispatcher (I)}{73}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCurrentTask (TH)}{74}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttCurrentTime (ITH)}{75}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttDiscardUnsentMessages (IT)}{76}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttEnableSlotShifting (I)}{77}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttEnterMonitor (T)}{78}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttExitMonitor (T)}{79}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttFetch (T)}{80}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttGetData (TH)}{81}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttGetInitArg (C++ only) (I)}{82}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttGetInvoker (H)}{83}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttGetMsg (TH)}{84}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttGetX (ITH)}{85}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttGive (TH)}{87}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttInitKernel (I)}{88}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttKillJob (TH)}{90}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttLogNow (TH)}{91}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttLogStart (TH)}{92}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttLogStop (TH)}{93}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttLogValue (TH)}{94}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttNonPreemptible (I)}{95}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttNoSchedule (I)}{96}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttNotify (TH)}{97}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttNotifyAll (TH)}{98}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttPost (T)}{99}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttRemoveTimer (TH)}{100}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttRetrieve (T)}{101}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttSendMsg (TH)}{102}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttSetCBSParameters (ITH)}{103}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttSetData (TH)}{104}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttSetKernelParameter (ITH)}{105}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttSetNetworkParameter (ITH)}{106}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttSetNextSegment (TH)}{107}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttSetX (ITH)}{108}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttSleep (T)}{110}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttSleepUntil (T)}{111}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttTake (T)}{112}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttTryFetch (TH)}{113}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttTryPost (TH)}{114}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttUltrasoundPing (TH)}{115}}
+\@writefile{toc}{\contentsline {subsection}{\bf  ttWait (T)}{116}}
+\bibdata{local,artes}
+\bibcite{and+05}{\citeauthoryear {Andersson \etal }{2005}}
+\bibcite{ast+hagg95}{\citeauthoryear {{\r A}str{\"o}m and H{\"a}gglund}{1995}}
+\bibcite{rtsj2000}{\citeauthoryear {Bollella \etal }{2000}}
+\bibcite{cer+03}{\citeauthoryear {Cervin \etal }{2003}}
+\bibcite{hen+02ifac}{\citeauthoryear {Henriksson \etal }{2002}}
+\bibcite{hen+03}{\citeauthoryear {Henriksson \etal }{2003}}
+\bibcite{ohlin06lic}{\citeauthoryear {Ohlin}{2006}}
+\bibcite{per+roy99}{\citeauthoryear {Perkins and Royer}{1999}}
+\bibcite{AODVrfc}{\citeauthoryear {Perkins and Royer}{2003}}
+\bibcite{simulink}{\citeauthoryear {{The Mathworks}}{2001}}
+\@writefile{toc}{\contentsline {section}{\numberline {15.}{References}}{117}}

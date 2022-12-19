@@ -1,0 +1,28 @@
+\def\filedate{2004/07/12}
+\ProvidesFile{newschoolbook.sty}[\filedate NewCentury]
+
+\renewcommand\rmdefault{ncs}
+\DeclareSymbolFont{operators}{OT1}{ncs}{m}{n}
+\DeclareSymbolFont{letters}{OML}{ncs}{m}{it}
+\DeclareSymbolFont{symbols}{OMS}{ncs}{m}{n}
+\SetSymbolFont{letters} {bold}{OML}{ncs} {b}{it}
+\SetSymbolFont{operators}{bold}{OT1}{ncs}{b}{n}
+\SetSymbolFont{symbols}  {bold}{OMS}{ncs}{b}{n}
+
+\DeclareMathAlphabet      {\mathbf}{OT1}{ncs}{b}{n}
+%\SetMathAlphabet\mathbf{bold}{OT1}{ncs}{b}{n}
+%\DeclareMathAlphabet      {\mathsf}{OT1}{cmss}{m}{n}
+\DeclareMathAlphabet      {\mathit}{OT1}{ncs}{m}{it}
+%\DeclareMathAlphabet      {\mathtt}{OT1}{cmtt}{m}{n}
+\SetMathAlphabet\mathsf{bold}{OT1}{cmss}{bx}{n}
+\SetMathAlphabet\mathit{bold}{OT1}{cmr}{bx}{it}
+%\DeclareFontEncoding{TS1}
+%\DeclareFontSubstitution{TS1}{ncs}{m}{n}
+% We require the latin-modern font package to be available.
+\renewcommand\ttdefault{lmtt}
+\renewcommand\bfdefault{b}
+\renewcommand\sfdefault{phv}
+
+\renewcommand{\encodingdefault}{T1}
+\fontfamily{\rmdefault}\fontencoding{T1}\selectfont
+\endinput

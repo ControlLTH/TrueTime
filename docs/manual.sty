@@ -1,0 +1,37 @@
+\def\filename{manual}
+\def\filedate{1999/08/06} %LastEditDate
+\ProvidesFile{manual}[\filedate]%
+
+\newdimen\manual@left\manual@left=5mm
+
+
+\newsection\entry
+\def\entrySkip{\z@}
+\def\entryLeftskip{-\manual@left}
+\def\entryStyle{\clearpage\Large\bfseries}
+\def\entryIdent#1{#1\break\@tempdima=\textwidth\advance\@tempdima\manual@left
+  \vrule height 15pt depth -14pt width \@tempdima
+  \addcontentsline{toc}{subsection}{\bf #1}}
+
+\newsection\@fixedname
+\renewcommand\@fixednameLeftskip{-\manual@left}
+
+\newcommand*\tx[1]{\text{\textit{#1}}}
+
+\newcommand\purpose{\@fixedname{Purpose}}
+\newcommand\synopsis{\@fixedname{Synopsis}}
+\newcommand\descr{\@fixedname{Description}}
+\newcommand\parameters{\@fixedname{Parameters}}
+\newcommand{\remark}{\@fixedname{Remark}}
+\newcommand{\example}{\@fixedname{Example}}
+\newcommand{\reference}{\@fixedname{Reference}}
+\newcommand{\seealso}{\@fixedname{See Also}}
+\newcommand\algorithm{\@fixedname{Algorithm}}
+
+\newcommand\Msyntax{\@fixedname{Matlab syntax}}
+\newcommand\Csyntax{\@fixedname{C++ syntax}}
+\newcommand\args{\@fixedname{Arguments}}
+\newcommand\optargs{\@fixedname{Optional Arguments}}
+\newcommand\retvals{\@fixedname{Return Values}}
+\newcommand\limitations{\@fixedname{Limitations}}
+

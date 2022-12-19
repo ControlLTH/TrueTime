@@ -1,0 +1,74 @@
+-----------------------------------------------
+ TrueTime 1.5
+ Example: Distributed Wireless Control System
+ Directory: $DIR/examples/wireless
+-----------------------------------------------
+
+1. INTRODUCTION
+
+This example shows distributed control of a DC-servo using
+communication over a wireless network. The example also shows how to
+simulate power consumption and how to use the battery block. The model
+contains two computer nodes located 20 m apart, each represented by a
+TrueTime kernel block. A time-driven sensor/actuator node samples the
+process periodically and sends the samples over the network to the
+controller node. The control task in this node calculates the control
+signal and sends the result back to the sensor/actuator node, where it
+is actuated. The wireless communication link is at the same time
+subject to a simple power control scheme. Power control tasks running
+in both the sensor/actuator node and in the controller node
+periodically send out ping messages to the other node to test the
+channel transmission. If a reply is received, the channel is assumed
+to be good and the transmission power is lowered. If on the other hand
+no reply is received, then the transmission power is considerably
+increased until it saturates or a reply is received again.
+
+2. COMPILING THE SIMULATION FILES
+
+2.1 Configuring the TrueTime Environment
+
+    Before starting Matlab, you must set the environment variable
+    TTKERNEL to point to the directory with the TrueTime kernel files:
+
+        Unix/Linux: > export TTKERNEL=$DIR/kernel
+        Windows:  Control Panel / System / Advanced / Environment Variables
+
+    Then add the following lines to your MATLAB startup script. This
+    will set up all necessary paths to the TrueTime kernel files.
+
+        addpath(getenv('TTKERNEL'))
+        init_truetime;
+
+2.2 Compilation
+
+    As described in the reference manual it is possible to write a
+    TrueTime simulation (i.e. the code functions for the tasks and the
+    initialization commands) either as m-files or as C++ functions. For
+    this example only the m-file approach is provided.
+   
+    Since the TrueTime archive contains pre-compiled files, no 
+    compilation is required to run TrueTime in the Matlab version. 
+    However, if needed, the files may be re-compiled by issuing the 
+    command make_truetime from the command prompt.
+
+
+3. SIMULATIONS
+
+Open the model wireless.mdl to run the simulation. 
+
+ - Run a first simulation without modifying anything. Look at the plots
+   showing the battery levels in the two nodes. Note that the power control
+   scheme is not activated until ~2 seconds have elapsed. Also note how the 
+   measured values at some times deviate more than usual from the reference
+   values. This deviation is caused by the fact that it is possible to lose
+   several consecutive sensor value readings when using the simple power 
+   control that is implemented in the nodes.
+
+ - Switch off the power control scheme in the controller node. This is done
+   by commenting out the creation of the task power_controller_task in 
+   controller_init. Run the simulation again and now note that the power drain
+   is constant in the controller node. This causes the battery to run out
+   of energy, and the control is lost. Experiment with different network
+   parameters and protocols. You can also configure the energy consumption and
+   the CPU scaling in the kernel block with ttSetKernelParameter and
+   experiment with different Dynamic Voltage Scaling techniques.

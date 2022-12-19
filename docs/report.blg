@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2014/MacPorts 2014_9)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: report.aux
+The style file: LongLabels.bst
+Database file #1: local.bib
+Warning--I'm ignoring and+05's extra "booktitle" field
+--line 32 of file local.bib
+Database file #2: artes.bib
+You've used 10 entries,
+            2919 wiz_defined-function locations,
+            941 strings with 12225 characters,
+and the built_in function-call counts, 3911 in all, are:
+= -- 440
+> -- 138
+< -- 1
++ -- 61
+- -- 60
+* -- 343
+:= -- 633
+add.period$ -- 23
+call.type$ -- 10
+change.case$ -- 67
+chr.to.int$ -- 10
+cite$ -- 10
+duplicate$ -- 176
+empty$ -- 303
+format.name$ -- 73
+if$ -- 837
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 47
+num.names$ -- 30
+pop$ -- 93
+preamble$ -- 1
+purify$ -- 80
+quote$ -- 0
+skip$ -- 119
+stack$ -- 0
+substring$ -- 102
+swap$ -- 34
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 68
+warning$ -- 0
+while$ -- 26
+width$ -- 0
+write$ -- 124
+(There was 1 warning)

@@ -1,0 +1,742 @@
+%%
+%% This is file `common.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% common.dtx  (with options: `code')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% You are *not* allowed to modify this file.
+%% 
+%% You are *not* allowed to distribute this file.
+%% For distribution of the original source see the terms
+%% for copying and modification in the file common.dtx.
+%% 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesFile{common.sty}
+   [1999/12/19 v1.0 Common file for various LaTeX document classes]
+\DeclareOption{a4paper}
+   {\setlength\paperheight {297mm}%
+    \setlength\paperwidth  {210mm}}
+\DeclareOption{a5paper}
+   {\setlength\paperheight {210mm}%
+    \setlength\paperwidth  {148mm}}
+\DeclareOption{b5paper}
+   {\setlength\paperheight {250mm}%
+    \setlength\paperwidth  {176mm}}
+\DeclareOption{letterpaper}
+   {\setlength\paperheight {11in}%
+    \setlength\paperwidth  {8.5in}}
+\DeclareOption{legalpaper}
+   {\setlength\paperheight {14in}%
+    \setlength\paperwidth  {8.5in}}
+\DeclareOption{executivepaper}
+   {\setlength\paperheight {10.5in}%
+    \setlength\paperwidth  {7.25in}}
+\DeclareOption{landscape}
+   {\setlength\@tempdima   {\paperheight}%
+    \setlength\paperheight {\paperwidth}%
+    \setlength\paperwidth  {\@tempdima}}
+\newcommand{\@ptsize}{}
+\DeclareOption{9pt}{\renewcommand{\@ptsize}{9}}
+\DeclareOption{10pt}{\renewcommand{\@ptsize}{0}}
+\DeclareOption{11pt}{\renewcommand{\@ptsize}{1}}
+\DeclareOption{12pt}{\renewcommand{\@ptsize}{2}}
+\DeclareOption{chapter}{%
+  \newcounter{chapter}%
+  \renewcommand{\thechapter}{\arabic{chapter}}
+}
+\DeclareOption{oneside}{\@twosidefalse \@mparswitchfalse}
+\DeclareOption{twoside}{\@twosidetrue  \@mparswitchtrue}
+\DeclareOption{draft}{\setlength\overfullrule{5pt}%
+  \AtEndOfPackage{\let\draft@date=\datetime}}
+\DeclareOption{final}{\setlength\overfullrule{0pt}%
+  \AtEndOfPackage{\let\draft@date=\@empty}}
+\DeclareOption{onecolumn}{\@twocolumnfalse}
+\DeclareOption{twocolumn}{\@twocolumntrue}
+\DeclareOption{leqno}{\input{leqno.clo}}
+\DeclareOption{fleqn}{\input{fleqn.clo}}
+\DeclareOption*{}
+
+\ExecuteOptions{a4paper,10pt,oneside,onecolumn,draft}
+\ProcessOptions
+\newcommand{\@xiiipt}{13.1}
+\newcommand{\@xviiipt}{18}
+\newcommand{\@xxiipt}{22}
+\newcommand{\@xxxpt}{30}
+
+\newcommand{\Huge}{}
+\renewcommand{\Huge}{9}\ifx\@ptsize\Huge
+\toks0={%
+    \@vpt\@vipt       \@vipt\@viipt   \@viipt\@viiipt  \@viiipt\@xpt
+    \@ixpt\@xipt      \@xipt\@xiiipt  \@xivpt\@xviiipt
+    \@xviipt\@xxiipt  \@xxpt\@xxvpt   \@xxvpt\@xxxpt   \Huge}
+\fi
+\renewcommand{\Huge}{0}\ifx\@ptsize\Huge
+\toks0={%   The definitions for 10pt normalfont.
+    \@vpt\@vipt       \@viipt\@viiipt \@viiipt\@xpt    \@ixpt\@xipt
+    \@xpt\@xiipt      \@xiipt\@xivpt  \@xivpt\@xviiipt
+    \@xviipt\@xxiipt  \@xxpt\@xxvpt   \@xxvpt\@xxxpt   \Huge}
+\fi
+\renewcommand{\Huge}{1}\ifx\@ptsize\Huge
+\toks0={%  The definitions for 11pt normalfont.
+    \@vipt\@viipt     \@viiipt\@xpt   \@ixpt\@xipt     \@xpt\@xiipt
+    \@xipt\@xiiipt    \@xivpt\@xviiipt \@xviipt\@xxiipt
+    \@xxpt\@xxvpt     \@xxvpt\@xxxpt  \@xxvpt\@xxxpt   \Huge}
+\fi
+\renewcommand{\Huge}{2}\ifx\@ptsize\Huge
+\toks0={%  The definitions for 12pt normalsize
+    \@vipt\@viipt    \@viiipt\@xpt     \@xpt\@xiipt     \@xipt\@xiiipt
+    \@xiipt\@xivpt   \@xivpt\@xviiipt  \@xviipt\@xxiipt
+    \@xxpt\@xxvpt    \@xxvpt\@xxxpt    \@xxvpt\@xxxpt   \Huge}
+\fi
+\def\@tempa#1#2#3\Huge{\toks2={#1#2}\toks0={#3\Huge}}
+\def\@tempb{\expandafter\@tempa\the\toks0}
+\newcommand{\SetSkips}{%
+  \jot=\baselineskip\divide \jot by 4
+  \smallskipamount=\jot plus 0.33\jot minus 0.33\jot
+  \medskipamount=\smallskipamount \multiply \medskipamount by 2
+  \bigskipamount=\medskipamount \multiply \bigskipamount by 2
+  \abovedisplayskip=4\jot plus \jot minus 2\jot
+  \belowdisplayskip=\abovedisplayskip
+  \abovedisplayshortskip=0pt plus \jot
+  \belowdisplayshortskip=2\jot plus \jot minus \jot
+}
+\@tempb
+\edef\tiny{\noexpand\@setfontsize\noexpand\tiny\the\toks2}
+\@tempb
+\edef\scriptsize{\noexpand\@setfontsize\noexpand\scriptsize\the\toks2}
+\@tempb
+\edef\footnotesize{\noexpand\@setfontsize\noexpand\footnotesize
+  \the\toks2 \noexpand\SetSkips}
+\@tempb
+\edef\small{\noexpand\@setfontsize\noexpand\small
+  \the\toks2 \noexpand\SetSkips}
+\let\@listi=\relax\let\@listI=\relax
+\@tempb\toks4={\SetSkips\let\@listi\@listI}
+\edef\normalsize{\noexpand\@setfontsize\noexpand\normalsize
+  \the\toks2 \the\toks4}
+\@tempb
+\edef\large{\noexpand\@setfontsize\noexpand\large\the\toks2}
+\@tempb
+\edef\Large{\noexpand\@setfontsize\noexpand\Large\the\toks2}
+\@tempb
+\edef\LARGE{\noexpand\@setfontsize\noexpand\LARGE\the\toks2}
+\@tempb
+\edef\huge{\noexpand\@setfontsize\noexpand\huge\the\toks2}
+\@tempb
+\edef\Huge{\noexpand\@setfontsize\noexpand\Huge\the\toks2}
+\let\@listI=\relax
+\normalsize
+\setlength\lineskip{1\p@}
+\setlength\normallineskip{1\p@}
+\renewcommand{\baselinestretch}{}
+\setlength\parskip{0\p@ \@plus \p@}
+\setlength\parindent{1.5em}
+\@lowpenalty   51
+\@medpenalty  151
+\@highpenalty 301
+\hoffset=-1in
+\voffset=-1in
+\setlength\headheight{\baselineskip}
+\setlength\headsep{2\baselineskip}
+\setlength\topskip{3.3\jot}
+\setlength\topmargin{25mm}
+\addtolength\topmargin{-\headheight}
+\addtolength\topmargin{-\headsep}
+\setlength\footskip{3\baselineskip}
+\setlength\maxdepth{.5\topskip}
+\setlength\@maxdepth\maxdepth
+\setlength\textwidth{\paperwidth}
+\addtolength\textwidth{-2in}
+\def\IntegralLines{
+  \setlength\@tempdima{\textheight}
+  \addtolength\@tempdima{-\topskip}
+  \addtolength\@tempdima{0.5\baselineskip}
+  \divide\@tempdima\baselineskip
+  \@tempcnta=\@tempdima
+  \setlength\textheight{\@tempcnta\baselineskip}
+  \addtolength\textheight{\topskip}
+}
+\AtBeginDocument{\IntegralLines}
+
+\setlength\textheight{\paperheight}
+\addtolength\textheight{-\headsep}
+\addtolength\textheight{-\topmargin}
+\addtolength\textheight{-\headheight}
+\addtolength\textheight{-1.5in}
+\setlength\marginparsep{1em}
+\setlength\marginparpush{2\jot}
+
+\newcommand*{\SetMargins}{%
+  \ifdim\oddsidemargin=\z@  \oddsidemargin=1in\relax\fi
+  \if@twoside \ifdim\evensidemargin=\z@
+    \evensidemargin=\oddsidemargin
+  \fi\fi
+  \@tempdima=\paperwidth
+  \advance\@tempdima-\textwidth
+  \advance\@tempdima-2\oddsidemargin
+  \advance\@tempdima-\marginparsep
+  \marginparwidth=\@tempdima
+}
+\AtBeginDocument{\SetMargins}
+\newcommand*{\ShiftPage}{%
+  \advance\oddsidemargin\marginparsep
+  \advance\oddsidemargin\marginparwidth
+  \@reversemargintrue
+}
+\newcommand*\CenterText{%
+  \oddsidemargin=15mm
+  \@tempdima=\paperwidth
+  \advance\@tempdima-\textwidth
+  \advance\@tempdima-2\oddsidemargin
+  \advance\@tempdima-2\marginparsep
+  \marginparwidth=0.5\@tempdima
+  \advance\oddsidemargin\marginparwidth
+  \advance\oddsidemargin\marginparsep
+  \evensidemargin=\oddsidemargin
+}
+\footnotesize\setlength\footnotesep{\ht\strutbox}\normalsize
+\setlength{\skip\footins}{3\jot \@plus \jot \@minus \jot}
+\setcounter{topnumber}{2}
+\renewcommand{\topfraction}{.9}
+\setcounter{bottomnumber}{1}
+\renewcommand{\bottomfraction}{.8}
+\setcounter{totalnumber}{3}
+\renewcommand{\textfraction}{.1}
+\renewcommand{\floatpagefraction}{.9}
+\setcounter{dbltopnumber}{2}
+\renewcommand{\dbltopfraction}{.7}
+\renewcommand{\dblfloatpagefraction}{.9}
+\setlength\floatsep    {4\jot \@plus \jot \@minus \jot}
+\setlength\textfloatsep{7\jot \@plus \jot \@minus \jot}
+\setlength\intextsep{\floatsep}
+\setlength\dblfloatsep    {\floatsep}
+\setlength\dbltextfloatsep{\textfloatsep}
+\setlength\@fptop{0\p@ \@plus 1fil}
+\setlength\@fpsep{3\jot \@plus 2fil}
+\setlength\@fpbot{0\p@ \@plus 1fil}
+\setlength\@dblfptop{\@fptop}
+\setlength\@dblfpsep{\@fpsep}
+\setlength\@dblfpbot{\@fpbot}
+\let\C@=\csname \let\E@=\endcsname\let\X@=\expandafter \let\N@=\noexpand
+\def\XNC@{\expandafter\noexpand\csname}
+
+\newif\ifsaved@sec \newtoks\saved@everypar \newskip \saved@parskip
+\newif\if@num
+
+\def\x@sect#1[#2]#3{\start@sect{#1}%
+ \begingroup
+    \let\\=\break \leftskip=\C@ #1Leftskip\E@ \rightskip=\C@ #1Rightskip\E@
+    \parfillskip=\z@ \parindent=\z@ \hyphenpenalty=\@M \linepenalty=\@M
+    \C@ #1Style\E@ \C@ #1Ident\E@{#3}\par
+ \endgroup
+ \@tempskipa=\C@ #1SkipAfter\E@\@tempdima=\@tempskipa
+ \nobreak\vskip\@tempdima\global\@nobreaktrue
+ \@tempdima=\C@ #1IndentAfter\E@
+ \ifdim\@tempdima>\z@\def\@svsechd{\hbox to \@tempdima{\hfill}}\fi 
+ \C@ #1TocMark\E@{#2}{#3}%
+ \end@sect
+}
+
+\def\start@sect #1{\if@noskipsec \leavevmode \fi
+  \par
+  \if@num\refstepcounter{#1}\fi
+  \ifsaved@sec
+    \@tempskipa=\C@ #1Skip\E@\@tempdima=\@tempskipa\addvspace\@tempdima
+  \else
+    \saved@everypar=\everypar \saved@parskip=\parskip
+    \parskip=\z@\saved@sectrue
+    \addpenalty{\@secpenalty}
+    \addvspace{\C@ #1Skip\E@}%
+  \fi
+  \everypar={}}
+
+\def\end@sect{%
+  \everypar={{\setbox0=\lastbox}\@svsechd
+    \global\let\@svsechd=\@empty\global\@nobreakfalse
+    \global\@noskipsecfalse %%%%%%%%%%
+    \global\parskip=\saved@parskip\global\saved@secfalse
+    \global \everypar=\saved@everypar
+    \global\def\par{{\clubpenalty=\@M\@@par}\@restorepar}}}
+
+\def\y@sect#1[#2]#3{\start@sect{#1}\@noskipsectrue
+  \def\@svsechd{\hbox to \C@ #1Leftskip\E@{\hfill}%
+    {\C@ #1Style\E@\C@ #1Ident\E@{#3}%
+     \@tempskipa=\C@ #1SkipAfter\E@\hskip\@tempskipa}
+    \C@ #1TocMark\E@{#2}{#3}}%
+  \end@sect}
+
+\let \@svsechd=\@empty
+
+\def\numbered#1{\name@get{#1}%
+  \@ifundefined{c@\name@}{\@nocounterr{\name@}}%
+    {\X@ \let \C@ \name@ @num\E@=\@numtrue}}
+\def\unnumbered#1{\name@get{#1}\X@\let\C@ \name@ @num\E@=\@numfalse}
+
+\def\make@newsection#1#2{%
+  \toks0={\@ifstar{\@numfalse\@dblarg{#1{#2}}}}%
+  \toks2=\X@{\C@ #2@num\E@\@dblarg{#1{#2}}}%
+  \X@\edef\C@ #2\E@{\the\toks0{\the\toks2}}
+  \X@\def\C@ #2Skip\E@{\bigskipamount}
+  \X@\let\C@ #2Leftskip\E@=\z@
+  \X@\def\C@ #2Style\E@{\bfseries}%
+  \X@\edef\C@ #2Ident\E@{\N@\if@num\N@\@hangfrom{\XNC@ the#2\E@}\N@\enskip\N@\fi}
+  \X@\let\C@ #2TocMark\E@=\@gobbletwo
+  \X@\def\C@ #2Toc\E@##1##2{{\def\\{ }%
+    \addcontentsline{toc}{#2}{\if@num\protect\numberline{##1}\fi{##2}}}%
+  }%
+  \X@\let\C@ \name@ @num\E@=\@numfalse
+}
+
+
+\def\newsection{\@ifstar{\y@newsection}{\x@newsection}}
+
+\def\x@newsection#1{\name@get{#1}%
+  \edef\@tempa{\N@\make@newsection\N@\x@sect{\name@}}\@tempa
+  \X@\def\C@ \name@ SkipAfter\E@{\smallskipamount}
+  \X@\let\C@ \name@ Rightskip\E@=\@flushglue
+  \X@\let\C@ \name@ IndentAfter\E@=\z@
+}
+\def\y@newsection#1{\name@get{#1}%
+  \edef\@tempa{\N@\make@newsection\N@\y@sect{\name@}}\@tempa
+  \X@\def\C@ \name@ SkipAfter\E@{1em}
+}
+
+{\catcode`/=0\catcode`\\=13/xdef/@esc{/string\}}
+\def\name@get#1{\def\@tempa##1##2={\def\@tempa{##1}\def\name@{##2}}
+  \X@\@tempa\string#1=
+  \ifx\@tempa\@esc\let\@tempa=\@empty\fi
+  \edef\name@{\@tempa\name@}}
+
+\@ifundefined{c@section}{}{%
+  \newsection{\section}%
+  \numbered{\section}%
+  \def\sectionStyle{\large\bfseries}
+  \def\sectionSkip{2\baselineskip \@plus 0.66\baselineskip
+                   \@minus 0.33\baselineskip}
+  \def\sectionSkipAfter{\baselineskip}
+
+  \newsection{\subsection}
+  \def\subsectionSkip{\bigskipamount}
+
+  \newsection*{\subsubsection}
+  \def\subsubsectionStyle{\itshape\bfseries}
+}
+
+\newsection{\section}%
+\def\sectionStyle{\large\bfseries}
+\def\sectionSkip{2\baselineskip \@plus 0.66\baselineskip
+                 \@minus 0.33\baselineskip}
+\def\sectionSkipAfter{\baselineskip}
+
+\newsection{\subsection}
+
+\newsection*{\subsubsection}
+\def\subsubsectionStyle{\itshape\bfseries}
+
+\@ifundefined{thechapter}{%
+  \newcounter{section}
+  \renewcommand{\thesection}{\arabic{section}}%
+  \newcounter{subsection}[section]
+  \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}%
+  \def\sectionIdent{\if@num\@hangfrom{\thesection.\enskip}\fi}
+  \newcommand\@chapapp{\sectionname}
+}{% else
+  \newcounter{section}[chapter]%
+  \renewcommand{\thesection}{\thechapter.\arabic{section}}%
+  \newcommand\@chapapp{\chaptername}
+}%
+\numbered{\section}%
+
+\def\ps@nohead{%
+  \let\@oddhead=\@empty\let\@evenhead=\@empty
+  \def\@oddfoot{\draft@date\hfil\thepage}%
+  \def\@evenfoot{\thepage\hfil\draft@date}%
+}
+\let\draft@date=\@mpty
+\def\maketitle{\makeatletter\input{ltxextra.sty}\makeatother\maketitle}
+\if@twocolumn
+  \setlength\leftmargini  {2em}
+\else
+  \setlength\leftmargini  {2.5em}
+\fi
+\setlength\leftmarginii  {2.2em}
+\setlength\leftmarginiii {1.87em}
+\setlength\leftmarginiv  {1.7em}
+\if@twocolumn
+  \setlength\leftmarginv  {.5em}
+  \setlength\leftmarginvi {.5em}
+\else
+  \setlength\leftmarginv  {1em}
+  \setlength\leftmarginvi {1em}
+\fi
+\setlength\leftmargin    {\leftmargini}
+\setlength  \labelsep  {.5em}
+\setlength  \labelwidth{\leftmargini}
+\addtolength\labelwidth{-\labelsep}
+\setlength\partopsep{\jot \@plus 1\p@ \@minus 1\p@}
+\@beginparpenalty -\@lowpenalty
+\@endparpenalty   -\@lowpenalty
+\@itempenalty     -\@lowpenalty
+\def\@listI{\leftmargin\leftmargini
+  \parsep 1\jot \@plus2\p@ \@minus\p@
+  \topsep 2\jot \@plus\jot\@minus2\p@
+  \itemsep \parsep}
+\let\@listi\@listI
+\@listi
+\def\@listii {\leftmargin\leftmarginii
+              \labelwidth\leftmarginii
+              \advance\labelwidth-\labelsep
+              \topsep    1.33\jot \@plus0.6\jot \@minus\p@
+              \parsep    0.66\jot \@plus\p@  \@minus\p@
+              \itemsep   \parsep}
+\def\@listiii{\leftmargin\leftmarginiii
+              \labelwidth\leftmarginiii
+              \advance\labelwidth-\labelsep
+              \topsep    0.66\jot \@plus\p@\@minus\p@
+              \parsep    \z@
+              \partopsep \p@ \@plus\z@ \@minus\p@
+              \itemsep   \topsep}
+\def\@listiv {\leftmargin\leftmarginiv
+              \labelwidth\leftmarginiv
+              \advance\labelwidth-\labelsep}
+\def\@listv  {\leftmargin\leftmarginv
+              \labelwidth\leftmarginv
+              \advance\labelwidth-\labelsep}
+\def\@listvi {\leftmargin\leftmarginvi
+              \labelwidth\leftmarginvi
+              \advance\labelwidth-\labelsep}
+\renewcommand{\theenumi}{\arabic{enumi}}
+\renewcommand{\theenumii}{\alph{enumii}}
+\renewcommand{\theenumiii}{\roman{enumiii}}
+\renewcommand{\theenumiv}{\Alph{enumiv}}
+\newcommand{\labelenumi}{\theenumi.}
+\newcommand{\labelenumii}{(\theenumii)}
+\newcommand{\labelenumiii}{\theenumiii.}
+\newcommand{\labelenumiv}{\theenumiv.}
+\renewcommand{\p@enumii}{\theenumi}
+\renewcommand{\p@enumiii}{\theenumi(\theenumii)}
+\renewcommand{\p@enumiv}{\p@enumiii\theenumiii}
+\newcommand{\labelitemi}{$\m@th\bullet$}
+\newcommand{\labelitemii}{\normalfont\bfseries --}
+\newcommand{\labelitemiii}{$\m@th\ast$}
+\newcommand{\labelitemiv}{$\m@th\cdot$}
+\newenvironment{description}
+               {\list{}{\labelwidth\z@ \itemindent-\leftmargin
+                        \let\makelabel\descriptionlabel}}
+               {\endlist}
+\newcommand{\descriptionlabel}[1]{\hspace\labelsep
+                                \normalfont\bfseries #1}
+\def\abstract{\def\@tempa{abstract}%
+  \ifx\@currenvir\@tempa\endgroup
+    \makeatletter\input{ltxextra.sty}\makeatother
+    \begingroup\def\@currenvir{abstract}\abstract
+  \else\makeatletter\input{ltxextra.sty}\makeatother\fi}
+
+\newenvironment{verse}
+               {\let\\=\@centercr
+                \list{}{\itemsep      \z@
+                        \itemindent   -1.5em%
+                        \listparindent\itemindent
+                        \rightmargin  \leftmargin
+                        \advance\leftmargin 1.5em}%
+                \item[]}
+               {\endlist}
+\newenvironment{quotation}
+               {\list{}{\listparindent 1.5em%
+                        \itemindent    \listparindent
+                        \rightmargin   \leftmargin
+                        \parsep        \z@ \@plus\p@}%
+                \item[]}
+               {\endlist}
+\newenvironment{quote}
+               {\list{}{\rightmargin\leftmargin}%
+                \item[]}
+               {\endlist}
+\@ifundefined{thechapter}{%
+  \newcommand{\appendix}{\par
+    \setcounter{section}{0}%
+    \setcounter{subsection}{0}%
+    \renewcommand{\thesection}{\Alph{section}}}%
+    \renewcommand\@chapapp{\appendixname}
+}{%
+  \newcommand{\appendix}{\par
+    \setcounter{chapter}{0}%
+    \setcounter{section}{0}%
+    \renewcommand{\@chapapp}{\appendixname}%
+    \renewcommand{\thechapter}{\Alph{chapter}}}%
+}
+\setlength\arraycolsep{5\p@}
+\setlength\tabcolsep{6\p@}
+\setlength\arrayrulewidth{.4\p@}
+\setlength\doublerulesep{2\p@}
+\setlength\tabbingsep{\labelsep}
+\skip\@mpfootins = \skip\footins
+\setlength\fboxsep{3\p@}
+\setlength\fboxrule{.4\p@}
+\@ifundefined{thechapter}{%
+  \renewcommand{\theequation}{\arabic{equation}}%
+}{%
+  \@addtoreset{equation}{chapter}
+  \renewcommand{\theequation}{\thechapter.\arabic{equation}}%
+}
+\ifx\end@dblfloat@orig\undefined
+  \let\end@dblfloat@orig=\end@dblfloat
+  \def\end@dblfloat{\par\global\@minipagefalse\end@dblfloat@orig}
+\fi
+
+\@ifundefined{thechapter}{%
+  \newcounter{figure}
+  \renewcommand{\thefigure}{\@arabic\c@figure}
+}{% else
+  \newcounter{figure}[chapter]
+  \renewcommand{\thefigure}{\thechapter.\@arabic\c@figure}%
+}
+\def\fps@figure{tbp}
+\def\ftype@figure{1}
+\def\ext@figure{lof}
+\def\fnum@figure{\figurename~\thefigure}
+\newenvironment{figure}
+               {\@float{figure}}
+               {\end@float}
+\newenvironment{figure*}
+               {\@dblfloat{figure}}
+               {\end@dblfloat}
+\@ifundefined{thechapter}{%
+  \newcounter{table}
+  \renewcommand{\thetable}{\@arabic\c@table}
+}{% else
+  \newcounter{table}[chapter]
+  \renewcommand{\thetable}{\thechapter.\@arabic\c@table}
+}
+\def\fps@table{tbp}
+\def\ftype@table{2}
+\def\ext@table{lot}
+\def\fnum@table{\tablename~\thetable}
+\newenvironment{table}{\@float{table}}{\end@float}
+\newenvironment{table*}{\@dblfloat{table}}{\end@dblfloat}
+\@ifundefined{thechapter}{%
+  \newcounter{listing}
+}{%else
+  \newcounter{listing}[chapter]
+  \renewcommand\thelisting{\thechapter.\@arabic\c@listing}
+}
+\newcommand\fps@listing{tbp}
+\newcommand\ftype@listing{3}
+\newcommand\fnum@listing{\listingname~\thelisting}
+\newcommand\ext@listing{lot}
+\newenvironment{listing}{\@float{listing}}{\end@float}
+\newenvironment{listing*}{\@dblfloat{listing}}{\end@dblfloat}
+
+\newlength\abovecaptionskip
+\newlength\belowcaptionskip
+\newlength\captionnarrow
+\setlength\abovecaptionskip{3\jot}%
+\setlength\belowcaptionskip{0\p@}%
+\setlength\captionnarrow{\parindent}%
+\newcommand*{\captionsize}{\footnotesize}%
+\newcommand*{\captionidentstyle}{\bfseries}%
+\long\def\@makecaption#1#2{%
+  \captionsize
+  \sbox\@tempboxa{{\captionidentstyle #1\quad}#2}%
+  \global \@minipagefalse
+  \addvspace{\abovecaptionskip}
+  \@tempdima=\hsize\advance\@tempdima -2\captionnarrow
+  \ifdim \wd\@tempboxa > \@tempdima
+    \leftskip\captionnarrow \rightskip\captionnarrow
+    {\captionidentstyle #1\quad}#2\par
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\renewcommand{\footnoterule}{%
+  \kern-3\p@
+  \hrule width .4\columnwidth
+  \kern 2.6\p@}
+\@ifundefined{thechapter}{%
+}{% else
+  \@addtoreset{footnote}{chapter}
+}
+\long\def\@makefntext#1{%
+    \parindent 1em%
+    \noindent
+    \hbox to 1.8em{\hss\@makefnmark}#1}
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+
+
+\newenvironment{thebibliography}[1]%
+  {\BibliographyTitle \the@bibliography{#1}}%
+  {\def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+
+\newcommand*\BibliographyTitle{}
+\newcommand*{\numbered@bibliography}[1]{%
+  \bibliography@common
+  \list{\@biblabel{\theenumiv}}%
+       {\renewcommand{\theenumiv}{\bib@tag\arabic{enumiv}}%
+        \settowidth\labelwidth{\@biblabel{\bib@tag#1}}%
+        \leftmargin\labelwidth\advance\leftmargin\labelsep
+        \usecounter{enumiv}%
+        \let\p@enumiv\@empty
+       }%
+  \bibset@parameters
+}
+\newcommand*\bibtag[1]{\renewcommand*\bib@tag{#1}}
+\newcommand*\bib@tag{}
+\let \the@bibliography=\numbered@bibliography
+\def \@bibitem#1{\item\if@filesw \immediate\write\@auxout
+       {\string\bibcite{#1}{\bib@tag\the\value{\@listctr}}}\fi\ignorespaces}
+\newcommand*\unnumbered@bibliography{%
+  \bibliography@common
+  \let\@biblabel\@gobble
+  \list{}{\leftmargin\bibindent\itemindent-\bibindent}%
+  \bibset@parameters
+}
+
+\newdimen\bibindent
+\bibindent=1.5em
+
+\newcommand*\bibliography@common{%
+  \let\rm\upshape \let\titlefont=\slshape \let\authorfont=\upshape
+  \def\and{\egroup and \bgroup\authorfont}%
+  \let\bf\bfseries
+  \bibliographyHook
+}
+
+\newcommand*\bibliographyHook{}
+
+\newcommand*\bibset@parameters{%
+  \pretolerance\@m \tolerance2000
+  \hbadness=\tolerance \emergencystretch=1em
+  \sfcode`\.=\@m}
+
+\@ifundefined{internal@bibliography}
+   {\let\internal@bibliography\bibliography}
+   {}
+\renewcommand*\bibliography{%
+  \@ifstar
+    {\internal@bibliography}%
+    {\@ifundefined{thechapter}{%
+        \renewcommand*{\BibliographyTitle}{\section{\refname}}%
+     }{ %else
+        \renewcommand*{\BibliographyTitle}{\chapter{\bibname}}%
+     }%
+     \internal@bibliography}%
+    }
+
+\@ifundefined{internal@bibliographystyle}{%
+  \let\internal@bibliographystyle\bibliographystyle}{}
+\renewcommand*\bibliographystyle[1]{%
+  \@ifundefined{bib@#1}{}{\@nameuse{bib@#1}}%
+  \internal@bibliographystyle{#1}}
+
+\newcommand*\bib@LongLabels{\let\the@bibliography\unnumbered@bibliography
+  \@ifundefined{etal}{\def\etal{\textsl{et~al.}}}{}
+  \def\citeauthoryear##1##2{##1, ##2}
+  \def\@citedelim{;}
+  \def\@cite##1##2{[{##1\ifx?##2?\else , ##2\fi}]}
+}
+\newcommand*\bib@Harvard{\bib@LongLabels
+  \def\citeauthoryear##1##2{##1~(##2)}
+  \def\@cite##1##2{{##1\ifx?##2?\else , ##2\fi}}
+}
+\let\bib@PublicationList=\bib@LongLabels
+\def\@citedelim{,}
+\def\@citex[#1]#2{%
+  \let\@citea\@empty
+  \@cite{\@for\@citeb:=#2\do
+    {\@citea\def\@citea{\@citedelim\penalty\@m\ }%
+     \edef\@citeb{\expandafter\@iden\@citeb}%
+     \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
+     \@ifundefined{b@\@citeb}{{\reset@font\bfseries ?}%
+       \G@refundefinedtrue\@latex@warning
+       {Citation `\@citeb' on page \thepage \space undefined}}%
+     {\csname b@\@citeb\endcsname}}}{#1}}
+\newcommand*{\newblock}{}
+\newif\if@restonecol
+\newenvironment{theindex}{%
+  \if@twocolumn \@restonecolfalse \else \@restonecoltrue \fi
+  \ifdim\columnsep=\z@ \columnsep=8mm\fi
+  \@ifundefined{thechapter}{%
+    \twocolumn[\section*{\indexname}]%
+  }{% else
+    \twocolumn[\chapter*{\indexname}]%
+  }%
+  \parskip\z@ \@plus .3\p@\relax
+  \let\item\@idxitem
+}{\if@restonecol\onecolumn\else\clearpage\fi}
+\newcommand{\@idxitem}{\par\hangindent 40\p@}
+\newcommand{\subitem}{\par\hangindent 40\p@ \hspace*{20\p@}}
+\newcommand{\subsubitem}{\par\hangindent 40\p@ \hspace*{30\p@}}
+\newcommand{\indexspace}{\par \vskip 3\jot \@plus 2\jot \@minus\jot\relax}
+\newenvironment{titlepage}
+    {%
+      \cleardoublepage
+      \if@twocolumn
+        \@restonecoltrue\onecolumn
+      \else
+        \@restonecolfalse\newpage
+      \fi
+      \thispagestyle{empty}%
+      \setcounter{page}{1}%
+    }%
+    {\if@restonecol\twocolumn \else \newpage \fi
+    \setcounter{page}{1}%
+    }
+
+\newcommand{\contentsname}{Contents}
+\newcommand{\listfigurename}{List of Figures}
+\newcommand{\listtablename}{List of Tables}
+\newcommand{\refname}{References}
+\newcommand{\bibname}{Bibliography}
+\newcommand{\indexname}{Index}
+\newcommand{\figurename}{Figure}
+\newcommand{\tablename}{Table}
+\newcommand{\listingname}{Listing}
+\newcommand{\partname}{Part}
+\newcommand{\chaptername}{Chapter}
+\newcommand{\sectionname}{Section}
+\newcommand{\appendixname}{Appendix}
+\newcommand{\abstractname}{Abstract}
+\newcommand{\ccname}{cc}
+\newcommand{\today}{\ifcase\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space\number\day, \number\year}
+\def \lead@zero #1{\ifnum #1<10 0\fi \number#1}
+\newcount \hours \newcount \minutes
+\hours=\time \divide \hours by 60
+\count255=\hours \multiply \count255 by 60
+\minutes=\time \advance \minutes by -\count255
+\edef \isodate{\number\year-\lead@zero\month-\lead@zero\day}
+\edef \datetime{\isodate\enskip \lead@zero\hours:\lead@zero\minutes}
+\setlength\columnsep{8mm}
+\setlength\columnseprule{\z@}
+  \pagestyle{nohead}
+  \pagenumbering{arabic}      % Arabic page numbers
+\if@twoside
+\else
+  \raggedbottom
+\fi
+\if@twocolumn
+  \twocolumn
+  \sloppy
+  \flushbottom
+\else
+  \onecolumn
+\fi
+\frenchspacing
+\endinput
+%%
+%% End of file `common.sty'.

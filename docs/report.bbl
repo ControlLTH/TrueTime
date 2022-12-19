@@ -1,0 +1,68 @@
+\begin{thebibliography}{}
+\makeatletter
+\@ifundefined{authorfont}{\let \authorfont=\@empty}{}
+\@ifundefined{etal}{\def\etal{\em et~al.}}{}
+\@ifundefined{Ed}{\def\Ed{Ed}}{}
+\@ifundefined{Eds}{\def\Eds{Eds}}{}
+\@ifundefined{titlefont}{\let\titlefont=\@empty}{}
+\@ifundefined{and}{\def\and{and }}{}
+\makeatother
+
+\bibitem[\protect\citeauthoryear{Andersson \protect\etal }{2005}]{and+05}
+{\authorfont Andersson,~M., D.~Henriksson, A.~Cervin, \and K.-E. {\AA}rz{\'e}n}
+  (2005): ``Simulation of wireless networked control systems.'' In {\titlefont
+  44th IEEE Conference on Decision and Control, and the European Control
+  Conference, CDC-ECC '05}. Seville, Spain.
+
+\bibitem[\protect\citeauthoryear{{\AA}str{\"o}m and
+  H{\"a}gglund}{1995}]{ast+hagg95}
+{\authorfont {\AA}str{\"o}m,~K.~J. \and T.~H{\"a}gglund} (1995): {\titlefont
+  PID Controllers: Theory, Design, and Tuning}.
+\newblock Instrument Society of America, Research Triangle Park, North
+  Carolina.
+
+\bibitem[\protect\citeauthoryear{Bollella \protect\etal }{2000}]{rtsj2000}
+{\authorfont Bollella,~G., B.~Brosgol, P.~Dibble, S.~Furr, J.~Gosling,
+  D.~Hardin, \and M.~Turnbull} (2000): {\titlefont The Real-Time Specification
+  for Java}.
+\newblock Addison-Wesley.
+
+\bibitem[\protect\citeauthoryear{Cervin \protect\etal }{2003}]{cer+03}
+{\authorfont Cervin,~A., D.~Henriksson, B.~Lincoln, J.~Eker, \and K.-E.
+  {\AA}rz{\'e}n} (2003): ``How does control timing affect performance?
+  {A}nalysis and simulation of timing using {J}itterbug and {T}rue{T}ime.''
+  {\titlefont IEEE Control Systems Magazine}, {\bf 23:3}, pp.~16--30.
+
+\bibitem[\protect\citeauthoryear{Henriksson \protect\etal }{2002}]{hen+02ifac}
+{\authorfont Henriksson,~D., A.~Cervin, \and K.-E. {\AA}rz{\'e}n} (2002):
+  ``Truetime: Simulation of control loops under shared computer resources.'' In
+  {\titlefont Proceedings of the 15th IFAC world congress}.
+
+\bibitem[\protect\citeauthoryear{Henriksson \protect\etal }{2003}]{hen+03}
+{\authorfont Henriksson,~D., A.~Cervin, \and K.-E. {\AA}rz{\'e}n} (2003):
+  ``Truetime: Real-time control system simulation with matlab/simulink.'' In
+  {\titlefont Proceedings of the Nordic MATLAB Conference}.
+
+\bibitem[\protect\citeauthoryear{Ohlin}{2006}]{ohlin06lic}
+{\authorfont Ohlin,~M.} (2006): ``Feedback linux scheduling and a simulation
+  tool for wireless control.'' Licentiate Thesis ISRN
+  LUTFD2/TFRT-{\hskip0.1em}-3240-{\hskip0.1em}-SE.
+\newblock Department of Automatic Control, Lund University, Sweden.
+
+\bibitem[\protect\citeauthoryear{Perkins and Royer}{1999}]{per+roy99}
+{\authorfont Perkins,~C.~E. \and E.~M. Royer} (1999): ``Ad-hoc on-demand
+  distance vector routing.'' In {\titlefont Proceedings of the 2nd IEEE
+  Workshop on Mobile Computing Systems and Applications}, pp.~90--100. New
+  Orleans, LA.
+
+\bibitem[\protect\citeauthoryear{Perkins and Royer}{2003}]{AODVrfc}
+{\authorfont Perkins,~C.~E. \and E.~M. Royer} (2003):
+\newblock ``Ad-hoc on-demand distance vector ({AODV}) routing.''
+\newblock Request for Comments: http://www.ietf.org/rfc/rfc3561.txt.
+
+\bibitem[\protect\citeauthoryear{{The Mathworks}}{2001}]{simulink}
+{\authorfont {The Mathworks}} (2001): {\titlefont Simulink: A Program for
+  Simulating Dynamic Systems -- User's Guide}.
+\newblock The MathWorks Inc., Natick, MA.
+
+\end{thebibliography}

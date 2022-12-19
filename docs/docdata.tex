@@ -1,0 +1,47 @@
+% Dokumentdatablad för rapporter
+% ==============================
+% Uppgifterna fylls i på engelska inom {}.
+% De prickade raderna skall alltid fyllas i (och överflödiga prickar tas bort),
+% övriga uppgifter är beroende av rapportens art.
+%
+% \name          Ex: FINAL REPORT , MASTER THESIS , INTERNAL REPORT
+% \date          Månad och årtal, ex: October 1985
+% \num           Nummer (av Britt-Marie), dvs endast siffrorna.
+% \author        Namn på författare
+% \supervisor    Handledare
+% \title         Rapportens titel (ev med engelsk övers.)
+% \keywords      Eventuella nyckelord
+% \language      Det språk rapporten är skriven på
+% \pages         Totalt antal sidor
+% \begin{abstract}...\end{abstract} Abstract på engelska
+%
+%------------------------------------------------------------------------------
+%
+\documentclass{docdata}
+\usepackage{schoolbook}
+\begin{document}
+\name{INTERNAL REPORT}
+\date{October 2003}
+\num{7605}
+\author{Dan Henriksson, Anton Cervin}
+\supervisor{}
+\sponsor{}
+\title{\textsc{TrueTime} 1.13---Reference Manual}
+\keywords{Real-time control systems, Event-based simulation, Shared resources,
+Real-time kernel, Feedback sched\-uling, Networked control systems.}
+\classification{}
+\supplement{}
+\isbn{}
+\language{English}
+\pages{73}
+\security{}
+\recipient{}
+\begin{abstract}
+  The manual describes the use of TrueTime, a Matlab/Simulink-based
+  tool for simulation of distributed real-time control systems. The
+  tool facilitates detailed co-simulation of plant dynamics,
+  controller task execution, and network transmissions. The TrueTime
+  Kernel and TrueTime Network blocks are described, and the real-time
+  kernel primitives are detailed.
+\end{abstract}
+\end{document}

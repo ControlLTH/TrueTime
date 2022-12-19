@@ -1,0 +1,10 @@
+\ProvidesFile{t1ncs.fd}[2004/07/11 font definitions for T1/ncs]
+
+\DeclareFontFamily{T1}{ncs}{}
+\DeclareFontShape{T1}{ncs}{m}{n}{ <-> t1ncsr }{}
+\DeclareFontShape{T1}{ncs}{m}{sl}{ <-> t1ncssl }{}
+\DeclareFontShape{T1}{ncs}{m}{it}{ <-> t1ncsi }{}
+\DeclareFontShape{T1}{ncs}{b}{n}{ <-> t1ncsb }{}
+\DeclareFontShape{T1}{ncs}{b}{it}{ <-> t1ncsbi }{}
+\DeclareFontShape{T1}{ncs}{m}{sc}{ <-> t1ncscsc }{}
+ 

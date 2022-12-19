@@ -1,0 +1,78 @@
+----------------------------------------------
+ TrueTime 1.5
+ Example: Wireless Ad-hoc Routing Using AODV
+ Directory: $DIR/examples/AODV
+----------------------------------------------
+
+1. INTRODUCTION
+
+This example describes a TrueTime implementation of the Ad-hoc 
+On-Demand Distance Vector (AODV) routing protocol. See the TrueTime 
+reference manual for a more comprehensive description of the example
+and for references to AODV documentation.
+
+
+2. COMPILING THE SIMULATION FILES
+
+2.1 Configuring the TrueTime Environment
+
+    Before starting Matlab, you must set the environment variable
+    TTKERNEL to point to the directory with the TrueTime kernel files:
+
+        Unix/Linux: > export TTKERNEL=$DIR/kernel
+        Windows:  Control Panel / System / Advanced / Environment Variables
+
+    Then add the following lines to your MATLAB startup script. This
+    will set up all necessary paths to the TrueTime kernel files.
+
+        addpath(getenv('TTKERNEL'))
+        init_truetime;
+
+2.2 Compilation
+
+    As described in the reference manual it is possible to write a
+    TrueTime simulation (i.e. the code functions for the tasks and the
+    initialization commands) either as m-files or as C++ functions. For
+    this example only the m-file approach is provided.
+
+    Since the TrueTime archive contains pre-compiled files, no 
+    compilation is required to run TrueTime in the Matlab version. 
+    However, if needed, the files may be re-compiled by issuing the 
+    command make_truetime from the command prompt.
+
+
+3. SIMULATIONS
+
+Open the model AODV.mdl to run the simulation. 
+
+- The simulation example consists of seven nodes. Choose the option
+  Update Diagram in the Edit menu to bring up an animation window of
+  the simulation. This will show the original positions of the seven
+  nodes and their respective signal reach.
+
+- Run a simulation. In the simulation scenario, the left-most node
+  (node 1) sends data periodically to node 7 with period 0.5.
+  The initial route that is established is 1 -> 3 -> 5 -> 7. At time 
+  t=3, node 5 starts to move which eventually leads to the route breaking. 
+  At time t=10, node 6 repairs the route by moving in between node 4
+  and 7. The printouts in the Matlab command window describe the actions 
+  in the AODV layer in more detail. Also study the global variable
+  routing_table. 
+
+- Open and examine the file initsim.m. This file initializes the global 
+  variables used in the simulation, e.g., the routing table and the node 
+  positions. By changing the variable verbose from 0 to 1 even more 
+  detailed AODV information will be displayed when the simulation is run.
+
+- The global variables sent and received show the data that is sent
+  (by node 1) and received (by node 7) in the simulation. Examine the 
+  lengths of these vectors to determine how many messages that where lost 
+  due to the delay in detecting and propagating the information about the 
+  broken link back to the source node. (Answer: The messages sent at times 
+  8.0002, 8.5002, and 9.0002 are lost.)
+
+- The hello interval determines how fast the network will respond
+  to broken links (and also the bandwidth overhead). Try changing the
+  AODV parameter HELLO_INTERVAL (both in initsim.m and node_init.m) to 
+  decrease the number of lost data messages. In this case only two messages 
+  are lost.

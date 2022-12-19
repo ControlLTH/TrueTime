@@ -1,0 +1,110 @@
+\contentsline {section}{\numberline {1.}{Introduction}}{7}
+\contentsline {section}{\numberline {2.}{Getting Started}}{7}
+\contentsline {subsection}{\numberline {2.1}{Compilation}}{7}
+\contentsline {section}{\numberline {3.}{Using the Simulator}}{8}
+\contentsline {section}{\numberline {4.}{Writing Code Functions}}{8}
+\contentsline {subsection}{\numberline {4.1}{Writing a Matlab Code Function}}{8}
+\contentsline {subsection}{\numberline {4.2}{Writing a C++ Code Function}}{9}
+\contentsline {subsection}{\numberline {4.3}{Calling Simulink Block Diagrams}}{10}
+\contentsline {section}{\numberline {5.}{Initialization}}{12}
+\contentsline {subsection}{\numberline {5.1}{Writing a Matlab Initialization Script}}{12}
+\contentsline {subsection}{\numberline {5.2}{Writing a C++ Initialization Script}}{13}
+\contentsline {section}{\numberline {6.}{Compilation}}{13}
+\contentsline {section}{\numberline {7.}{The \textsc {TrueTime} Kernel}}{15}
+\contentsline {subsection}{\numberline {7.1}{Dynamic Voltage Scaling}}{15}
+\contentsline {section}{\numberline {8.}{The \textsc {TrueTime} Network}}{16}
+\contentsline {subsection}{\numberline {8.1}{CSMA/CD (Ethernet)}}{17}
+\contentsline {subsection}{\numberline {8.2}{CSMA/AMP (CAN)}}{17}
+\contentsline {subsection}{\numberline {8.3}{Round Robin (Token Bus)}}{17}
+\contentsline {subsection}{\numberline {8.4}{FDMA}}{18}
+\contentsline {subsection}{\numberline {8.5}{TDMA (TTP)}}{18}
+\contentsline {subsection}{\numberline {8.6}{Switched Ethernet}}{18}
+\contentsline {subsection}{\numberline {8.7}{FlexRay}}{19}
+\contentsline {subsection}{\numberline {8.8}{PROFINET IO}}{19}
+\contentsline {section}{\numberline {9.}{The \textsc {TrueTime} Wireless Network}}{21}
+\contentsline {subsection}{\numberline {9.1}{802.11b/g (WLAN)}}{22}
+\contentsline {subsection}{\numberline {9.2}{802.15.4 (ZigBee)}}{23}
+\contentsline {subsection}{\numberline {9.3}{Calculation of Error Probabilities}}{24}
+\contentsline {subsection}{\numberline {9.4}{User-Defined Path-Loss Function}}{25}
+\contentsline {section}{\numberline {10.}{The \textsc {TrueTime} Battery}}{27}
+\contentsline {section}{\numberline {11.}{The \textsc {TrueTime} Standalone Network Blocks}}{27}
+\contentsline {section}{\numberline {12.}{Examples}}{27}
+\contentsline {subsection}{\numberline {12.1}{PID-control of a DC-servo}}{28}
+\contentsline {subsection}{\numberline {12.2}{Task Scheduling and Control}}{31}
+\contentsline {subsection}{\numberline {12.3}{Networked Control System}}{32}
+\contentsline {subsection}{\numberline {12.4}{Wireless Control System with Automatic Gain Control}}{33}
+\contentsline {subsection}{\numberline {12.5}{Wireless Ad-hoc Routing Using AODV}}{34}
+\contentsline {subsection}{\numberline {12.6}{Mote Soccer}}{36}
+\contentsline {section}{\numberline {13.}{Kernel Implementation Details}}{36}
+\contentsline {subsection}{\numberline {13.1}{Kernel Data Structures}}{37}
+\contentsline {subsection}{\numberline {13.2}{Task Model}}{39}
+\contentsline {subsection}{\numberline {13.3}{The Kernel Function}}{40}
+\contentsline {subsection}{\numberline {13.4}{Timing}}{41}
+\contentsline {section}{\numberline {14.}{\textsc {TrueTime} Command Reference}}{42}
+\contentsline {subsection}{\bf ttAbortSimulation (TH)}{47}
+\contentsline {subsection}{\bf ttAnalogIn (TH)}{48}
+\contentsline {subsection}{\bf ttAnalogOut (TH)}{49}
+\contentsline {subsection}{\bf ttAttachCBS (I)}{50}
+\contentsline {subsection}{\bf ttAttachDLHandler (I)}{51}
+\contentsline {subsection}{\bf ttAttachHook (C++ only) (I)}{52}
+\contentsline {subsection}{\bf ttAttachNetworkHandler (I)}{53}
+\contentsline {subsection}{\bf ttAttachTBS (I)}{54}
+\contentsline {subsection}{\bf ttAttachTimeTriggeredDispatcher (I)}{55}
+\contentsline {subsection}{\bf ttAttachTriggerHandler (I)}{56}
+\contentsline {subsection}{\bf ttAttachWCETHandler (I)}{57}
+\contentsline {subsection}{\bf ttCallBlockSystem (TH)}{58}
+\contentsline {subsection}{\bf ttCreateCBS (I)}{59}
+\contentsline {subsection}{\bf ttCreateEvent (I)}{60}
+\contentsline {subsection}{\bf ttCreateHandler (I)}{61}
+\contentsline {subsection}{\bf ttCreateJob (TH)}{62}
+\contentsline {subsection}{\bf ttCreateLog (I)}{63}
+\contentsline {subsection}{\bf ttCreateMailbox (I)}{65}
+\contentsline {subsection}{\bf ttCreateMonitor (I)}{66}
+\contentsline {subsection}{\bf ttCreatePeriodicTask (I)}{67}
+\contentsline {subsection}{\bf ttCreatePeriodicTimer (ITH)}{68}
+\contentsline {subsection}{\bf ttCreateSemaphore (I)}{69}
+\contentsline {subsection}{\bf ttCreateTask (I)}{70}
+\contentsline {subsection}{\bf ttCreateTBS (I)}{71}
+\contentsline {subsection}{\bf ttCreateTimer (ITH)}{72}
+\contentsline {subsection}{\bf ttCreateTimeTriggeredDispatcher (I)}{73}
+\contentsline {subsection}{\bf ttCurrentTask (TH)}{74}
+\contentsline {subsection}{\bf ttCurrentTime (ITH)}{75}
+\contentsline {subsection}{\bf ttDiscardUnsentMessages (IT)}{76}
+\contentsline {subsection}{\bf ttEnableSlotShifting (I)}{77}
+\contentsline {subsection}{\bf ttEnterMonitor (T)}{78}
+\contentsline {subsection}{\bf ttExitMonitor (T)}{79}
+\contentsline {subsection}{\bf ttFetch (T)}{80}
+\contentsline {subsection}{\bf ttGetData (TH)}{81}
+\contentsline {subsection}{\bf ttGetInitArg (C++ only) (I)}{82}
+\contentsline {subsection}{\bf ttGetInvoker (H)}{83}
+\contentsline {subsection}{\bf ttGetMsg (TH)}{84}
+\contentsline {subsection}{\bf ttGetX (ITH)}{85}
+\contentsline {subsection}{\bf ttGive (TH)}{87}
+\contentsline {subsection}{\bf ttInitKernel (I)}{88}
+\contentsline {subsection}{\bf ttKillJob (TH)}{90}
+\contentsline {subsection}{\bf ttLogNow (TH)}{91}
+\contentsline {subsection}{\bf ttLogStart (TH)}{92}
+\contentsline {subsection}{\bf ttLogStop (TH)}{93}
+\contentsline {subsection}{\bf ttLogValue (TH)}{94}
+\contentsline {subsection}{\bf ttNonPreemptible (I)}{95}
+\contentsline {subsection}{\bf ttNoSchedule (I)}{96}
+\contentsline {subsection}{\bf ttNotify (TH)}{97}
+\contentsline {subsection}{\bf ttNotifyAll (TH)}{98}
+\contentsline {subsection}{\bf ttPost (T)}{99}
+\contentsline {subsection}{\bf ttRemoveTimer (TH)}{100}
+\contentsline {subsection}{\bf ttRetrieve (T)}{101}
+\contentsline {subsection}{\bf ttSendMsg (TH)}{102}
+\contentsline {subsection}{\bf ttSetCBSParameters (ITH)}{103}
+\contentsline {subsection}{\bf ttSetData (TH)}{104}
+\contentsline {subsection}{\bf ttSetKernelParameter (ITH)}{105}
+\contentsline {subsection}{\bf ttSetNetworkParameter (ITH)}{106}
+\contentsline {subsection}{\bf ttSetNextSegment (TH)}{107}
+\contentsline {subsection}{\bf ttSetX (ITH)}{108}
+\contentsline {subsection}{\bf ttSleep (T)}{110}
+\contentsline {subsection}{\bf ttSleepUntil (T)}{111}
+\contentsline {subsection}{\bf ttTake (T)}{112}
+\contentsline {subsection}{\bf ttTryFetch (TH)}{113}
+\contentsline {subsection}{\bf ttTryPost (TH)}{114}
+\contentsline {subsection}{\bf ttUltrasoundPing (TH)}{115}
+\contentsline {subsection}{\bf ttWait (T)}{116}
+\contentsline {section}{\numberline {15.}{References}}{117}

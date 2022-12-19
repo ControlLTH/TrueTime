@@ -1,0 +1,82 @@
+\let\X@=\expandafter\let\C@=\csname\let\E@=\endcsname\let\N@=\noexpand
+\def\XNC@{\expandafter\noexpand\csname}
+
+\def\theoremheaderfont#1{\X@\def\C@ th@\th@style Headerfont\E@{#1}}
+\def\theorembodyfont#1{\X@\def\C@ th@\th@style Bodyfont\E@{#1}}
+
+
+\def\theoremstyle#1{%
+ \@ifundefined{th@#1Define}
+              {\GenericError{}{Unknown theoremstyle '#1'.}{}{}}{}
+ \def\th@style{#1}
+ \C@ th@#1Define\E@
+ \X@\let\C@ th@#1Define\E@=\@empty} 
+  
+\def\end@theorem{\global\@noskipsectrue%
+  \global\everypar={{\setbox0=\lastbox}\global\@nobreakfalse
+    \global\@noskipsecfalse %%%%%%%%%%
+    \global \everypar={}%
+    \global\def\par{{\clubpenalty=\@M\@@par}\@restorepar}}}
+
+
+\def\th@plainDefine{%
+  \newsection*\th@plain
+  \def\th@plainSkipAfter{1em}
+  \let\th@plain@num=\@numtrue
+  \def\th@plainIdent{\th@name\ \theth@plain}
+  \def\th@plainHeaderfont{\scshape}
+  \def\th@plainBodyfont{\itshape}
+  \def\th@plainBegin[##1]{\th@plain{\ifx=##1=\else ---##1\fi}}
+  \def\th@plainEnd{\par\addvspace{\medskipamount}\end@theorem}}
+
+\def\th@defaultDefine{%
+  \newsection\th@default
+  \let\th@defaultSkipAfter=\z@
+  \let\th@default@num=\@numtrue
+  \def\th@defaultIdent{\th@name\ \theth@default}
+  \def\th@defaultHeaderfont{\scshape}
+  \def\th@defaultBodyfont{\upshape}
+  \def\th@defaultBegin[##1]{\th@default{\ifx=##1=\else ---##1\fi}}
+  \def\th@defaultEnd{\finalmark\addvspace{\medskipamount}\end@theorem}}
+
+\def\theoremswithin#1{\def\th@count@within{#1}}
+\theoremswithin{}
+
+\def\newtheorem#1{\@ifnextchar[{\@othm{#1}}{\@othm{#1}[]}}
+
+\def\@othm#1[#2]#3{\@ifnextchar[%
+                     {\@nthm{#1}[#2]{#3}}
+                     {\@nthm{#1}[#2]{#3}[\th@count@within]}}
+
+\def\@nthm#1[#2]#3[#4]{%
+  \X@\@ifdefinable\C@ #1\E@{}%
+  \edef\@tempa{\N@\let\XNC@ #1Headerfont\E@
+    =\XNC@ th@\th@style Headerfont\E@}\@tempa
+  \edef\@tempa{\N@\let\XNC@ #1Bodyfont\E@
+    =\XNC@ th@\th@style Bodyfont\E@}\@tempa
+  \ifx=#2=%
+%    \X@\@ifdefinable\C@ c@#1\E@{\@definecounter{#1}}
+    \@definecounter{#1}
+    \ifx #4\@empty\else
+      \@newctr{#1}[#4]\X@\edef\C@ the#1\E@{\XNC@ the#4\E@.\N@\arabic{#1}}%
+    \fi   
+    \def\@tempa{#1}%
+  \else\def\@tempa{#2}\fi
+  \X@\edef\C@ #1\E@{\N@\par
+    \X@\let\XNC@ c@th@\th@style\E@=\XNC@ c@\@tempa\E@
+    \X@\let\XNC@ p@th@\th@style\E@=\XNC@ p@\@tempa\E@
+    \X@\let\XNC@ th@\th@style Style\E@=\XNC@ #1Headerfont\E@
+    \X@\let\XNC@ theth@\th@style\E@=\XNC@ the\@tempa\E@
+    \N@\def\N@\th@name{#3}
+    \XNC@ #1Bodyfont\E@
+    \N@\@ifnextchar[%
+      {\XNC@ th@\th@style Begin\E@}%
+      {\XNC@ th@\th@style Begin\E@[]}%
+  }
+  \edef\@tempa{\N@\let\XNC@ end#1\E@=\XNC@ th@\th@style End\E@}\@tempa
+}
+
+\theoremstyle{default}
+
+
+

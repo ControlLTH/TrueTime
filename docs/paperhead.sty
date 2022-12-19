@@ -1,0 +1,104 @@
+\ProvidesFile{paperhead.sty}[1999/12/01]
+\DeclareOption{left}{%
+  \let\close@center\relax
+  \def\leftright@head{\let\author\left@author\let\address\left@address
+    \raggedright}}
+\def\close@center{\endtabular\par\endgroup}%
+\DeclareOption{center}{%
+  \def\leftright@head{\let\author\first@uthor\let\address\center@address
+    \centering}}
+\DeclareOption{right}{%
+  \def\leftright@head{\let\author\right@author\let\address\right@address
+     \raggedleft\let\end@uthor\relax\parskip=0pt}}
+    
+\ExecuteOptions{center}
+\ProcessOptions
+
+\newtoks\fntoks
+\def\paperhead{\newbox\paperheadbox
+  \@ifundefined{titlestyle}{\def\titlestyle{\LARGE\bfseries}}{}
+  \@ifundefined{abovetitleskip}{\def\abovetitleskip{10mm}}{}
+  \@ifundefined{belowtitleskip}{\def\belowtitleskip{0pt}}{}
+  \@ifundefined{aboveauthorskip}{\def\aboveauthorskip{2\bigskipamount}}{}
+  \@ifundefined{authorstyle}{\def\authorstyle{\large\bfseries}}{}
+  \@ifundefined{belowheadskip}{\def\belowheadskip{15mm}}{}
+
+  \@ifundefined{aboveaddresskip}{\def\aboveaddresskip{\medskipamount}}{}
+  \@ifundefined{belowaddresskip}{\def\belowaddresskip{0pt}}{}
+  \@ifundefined{addresstyle}{\let\addresstyle\relax}{}
+  \@ifundefined{paperheadwidth}{\def\paperheadwidth{\textwidth}}{}
+%  \@ifundefined{@tabpos}{\def\@tabpos{c}}{}
+  \def\arraystretch{1.0}
+  \def\thefootnote{\fnsymbol{footnote}}%
+  \def\@makefnmark{\setbox\z@\hbox{I}\setbox\tw@\null\ht\tw@\ht\z@
+    \hbox to\z@{\normalsize \unskip$\m@th\box\tw@^{\@thefnmark}$\hss}}%
+%
+\let\latex@footnotetext=\footnotetext
+\fntoks={}
+\def\footnotetext[##1]##2{%
+  \toks0=\expandafter{\the\fntoks\latex@footnotetext[##1]{##2}}%
+  \xdef\outer@footnote{\the\toks0}
+  \global\fntoks=\expandafter{\the\toks0}}
+\global\def\outer@footnote{}
+%
+%  \long\def\@makefntext##1{\itemize\item[$\@thefnmark$]##1\enditemize}
+  \long\def\@makefntext##1{$^{\@thefnmark}$\,##1}
+
+  \def\title##1{\vbox to \abovetitleskip{\vfil}\hrule height\z@%
+    {\titlestyle{##1}\par\vspace{\belowtitleskip}}}
+
+  \def\left@address{\addresstyle\vskip\aboveaddresskip
+    \let\aboveaddresskip=\z@
+    \@ifnextchar[{\x@address}{\y@address}}
+  \def\x@address[##1]##2{\@hangfrom{$^{\@fnsymbol##1}$}{\itshape ##2\par}}
+  \def\y@address##1{{\itshape ##1\par}}   
+\def\left@author##1{\vspace{\aboveauthorskip}{\authorstyle##1\par}}
+\def\right@author##1{\vspace{\aboveauthorskip}{\authorstyle ##1\par}}
+\def\right@address##1{\vspace{\aboveaddresskip}{\addresstyle ##1\par}}
+
+\def\first@uthor##1{\let\author\next@uthor
+  \vskip\aboveauthorskip
+  \noindent\begingroup\addresstyle
+  \tabular[t]{c}%
+  {\authorstyle {##1}}}
+\def\next@uthor##1{\endtabular
+  \hskip 1em \@plus 0.17fil
+  \tabular[t]{c}%
+  {\authorstyle {##1}}}
+
+  \def\center@address##1{\\[\aboveaddresskip]##1}
+  \def\end@uthor{\close@center\leftskip\z@\rightskip\z@
+    \parfillskip\@flushglue
+    \vspace{\belowaddresskip}\let\end@uthor\relax}
+  \let\inner@subsubsect=\subsubsection
+  \def\subsubsection{\end@uthor\inner@subsubsect}
+  \paperhead@hook
+%
+  \setbox\paperheadbox\vbox\bgroup
+    \textwidth=\paperheadwidth
+    \hsize=\textwidth
+    \linewidth=\textwidth
+    \parindent=0pt
+    \leftright@head
+}  
+\newbox\topinfobox
+\def\topinfo{\@ifnextchar[{\topinfo@}{\topinfo@[\z@]}}
+\def\topinfo@[#1]#2{\global\setbox\topinfobox=\vbox to \z@{%
+  \vskip #1\relax
+  \hbox to \textwidth{\hss\ttfamily #2}\vss}}
+\topinfo@[\z@]{}
+
+\def\endpaperhead{
+  \end@uthor
+  \vskip\belowheadskip
+  \egroup
+  \if@twocolumn \twocolumn[\box\topinfobox
+                           \hbox to \textwidth{\hss\box\paperheadbox\hss}]
+  \else
+    \newpage\global\@topnum\z@\box\topinfobox
+    \hbox to \textwidth{\hss\box\paperheadbox\hss}
+  \fi
+  \outer@footnote
+}
+\@ifundefined{paperhead@hook}{\let\paperhead@hook=\relax}
+

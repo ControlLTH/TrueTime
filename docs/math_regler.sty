@@ -1,0 +1,66 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesFile{math_regler.sty}[200/11/30 v1.1
+             Mathematics Package]
+
+
+%%%%%%%%%%%%% Temporary fix. Remove soonest %%%%%%%%%%%%%%%%%
+\def\iacute{\accent"13 \char"10}  %% för i-accent i bibfiler 
+
+
+%%%%%%%%%%%%%% Theorem enhancements %%%%%%%%%%%%%%
+
+
+\RequirePackage{theorem_regler}
+
+\newcommand{\openbox}{\leavevmode
+  \hbox to.77778em{%
+  \hfil\vrule
+  \vbox to.675em{\hrule width.6em\vfil\hrule}%
+  \vrule\hfil}}
+
+\def \finalmark{{\ifvmode\noindent\else\unskip\fi\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak
+            \hfil\finalmarkmark\parfillskip=0pt\finalhyphendemerits=0\par}}%
+\let\finalmarkmark=\openbox
+\let\endsquare=\finalmark
+
+%%%%%%%%%%%% amsmath with enhancements %%%%%%%%%%%%%%
+
+
+\RequirePackage{amsmath}
+
+\renewcommand{\arraystretch}{1.25}
+
+\def\cases{\RIfM@\else\nonmatherr@{\begin{cases}}\fi
+  \left\{\vcenter\bgroup
+   \Let@\restore@math@cr
+   \default@tag
+   \openup\jot
+   \ialign\bgroup\strut@$\m@th\displaystyle{##}\hfil$&\qquad
+    $\m@th\displaystyle{{}##}$\hfil\crcr}
+\def\endcases{\crcr\egroup\egroup\right.}
+
+
+\newdimen \matrixopen
+
+\def \matrixbaselines{\normalbaselines
+  \advance \baselineskip \matrixopen
+  \advance \lineskiplimit \matrixopen
+  \advance \lineskip \matrixopen}%
+
+ \def\matrix{\ifdim\matrixopen=\z@ \matrixopen=\jot\fi
+   \null\,\vcenter\bgroup\Let@\restore@math@cr\default@tag
+   \matrixbaselines\m@th
+   \ialign\bgroup\hfil$\matrix@style##$\hfil&&\quad\hfil$\matrix@style##$\hfil\crcr
+       \mathstrut\crcr\noalign{\kern-\baselineskip}}
+ \def\endmatrix{\crcr\mathstrut\crcr\noalign{\kern-\baselineskip}\egroup
+    \egroup\,}
+\newcommand\displaystylematrix{\let\matrix@style=\displaystyle}
+\newcommand\textstylematrix{\let\matrix@style=\relax}
+\textstylematrix
+
+\newenvironment{gmatrix}{\left\lgroup\matrix}{\endmatrix\right\rgroup}
+\renewenvironment{pmatrix}{\left(\matrix}{\endmatrix\right)}
+\renewenvironment{bmatrix}{\left[\matrix}{\endmatrix\right]}
+\renewenvironment{Bmatrix}{\left\lbrace\matrix}{\endmatrix\right\rbrace}
+\renewenvironment{vmatrix}{\left\lvert\matrix}{\endmatrix\right\rvert}
+\renewenvironment{Vmatrix}{\left\lVert\matrix}{\endmatrix\right\rVert}

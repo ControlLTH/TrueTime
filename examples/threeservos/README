@@ -1,0 +1,71 @@
+----------------------------------------------
+ TrueTime 1.5
+ Example: Task Scheduling and Control
+ Directory: $DIR/examples/threeservos
+----------------------------------------------
+
+1. INTRODUCTION
+
+This example extends the simple PID control example (located in
+$DIR/examples/simple_pid) to the case of three PID-tasks running
+concurrently on the same CPU controlling three different servo
+systems. The effect of the scheduling policy on the global control
+performance is demonstrated.
+
+
+2. COMPILING THE SIMULATION FILES
+
+2.1 Configuring the TrueTime Environment
+
+    Before starting Matlab, you must set the environment variable
+    TTKERNEL to point to the directory with the TrueTime kernel files:
+
+        Unix/Linux: > export TTKERNEL=$DIR/kernel
+        Windows:  Control Panel / System / Advanced / Environment Variables
+
+    Then add the following lines to your MATLAB startup script. This
+    will set up all necessary paths to the TrueTime kernel files.
+
+        addpath(getenv('TTKERNEL'))
+        init_truetime;
+
+2.2 Compilation
+
+    As described in the reference manual it is possible to write a
+    TrueTime simulation (i.e. the code functions for the tasks and the
+    initialization commands) either as m-files or as C++ functions.
+    Both approaches are provided for this example and the compilations
+    needed for the respective alternatives are described below.
+
+    2.2.1 Matlab version
+   
+        Since the TrueTime archive contains pre-compiled files, no 
+        compilation is required to run TrueTime in the Matlab version. 
+        However, if needed, the files may be re-compiled by issuing
+        the command make_truetime from the command prompt.
+
+    2.2.2 C++ version
+    
+        Compilation of the init script of the computer block is
+        performed by the command:
+
+        >> ttmex threeservos_init.cpp
+    
+	NOTE: If changes are made to the code function or the
+        initialization commands, the init-file needs to be re-compiled.
+
+
+3. SIMULATIONS
+
+Open the model threeservos.mdl to run the simulation.
+
+- Make sure that rate-monotonic scheduling is specified in the
+  function ttInitKernel and simulate the system. Study the computer
+  schedule and the control performance. Task 1 will miss all its
+  deadlines and the corresponding control loop is unstable.
+
+- Change the scheduling policy to earliest-deadline-first and run a
+  new simulation. Again study the computer schedule and the control
+  performance. After an initial transient all tasks will miss their
+  deadlines, but the overall control performance, however, is
+  satisfactory.

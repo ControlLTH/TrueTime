@@ -1,0 +1,223 @@
+TrueTime 2.0, 2016-04-06
+========================
+* Fixed fatal bug under Mac OS X
+* Minor upgrades of demos
+
+TrueTime 2.0 beta 10.2, 2016-02-10
+==================================
+* Fixed fatal bug under Matlab 2015b
+* Fixed warning from ttGetMsg under Matlab 2015b
+* AttachNetworkHandler can now be used with Tasks
+
+TrueTime 2.0 beta 10.1, 2015-12-22
+==================================
+* Minor issues with ttSendMsg, RUNES_demo
+* New Gateway with multiple networks
+
+TrueTime 2.0 beta 10, 2015-12-18
+================================
+* Several bug fixes related to 64-bit Matlabs and memory leaks.
+* All example models converted to .slx format (Simulink 8.0)
+* New scheduling algorithms (TBS, TimeTriggered, SlotShifting) have been added.
+* Precompiled MEX files for 64-bit Windows, Mac and Linux supplied
+
+TrueTime 2.0 beta 6, 2010-07-16
+===============================
+* Network Code Machine functionality added
+
+TrueTime 2.0 beta 5, 2010-05-06
+===============================
+* Trivial changes to make TrueTime run under Matlab R2009.
+* Pre-compiled MEX-files are no longer supplied. 
+
+TrueTime 2.0 beta 4, 2009-10-15
+===============================
+* A bug causing empty error messages has been fixed.
+* Another example has been adopted and included: soccer
+* Two more network protocols added: FlexRay and PROFINET
+
+TrueTime 2.0 beta 3, 2009-09-18
+===============================
+* Bug in ttSetPeriod has been fixed.
+* A bug relating to scheduling policies multiple kernel blocks has
+  been fixed
+* A serious bug in random number in the CDMA network protocols under
+  Windows has been fixed
+* The block masks callbacks have been completely reprogrammed to allow
+* masking and variables as arguments for all block parameters
+* Two networking examples have been adapted and included: networked
+  and AODV.
+
+TrueTime 2.0 beta 2, 2009-05-11
+===============================
+* A serious bug in the Kernel block with regard to multiple Kernel
+  blocks in the same model has been fixed.
+* Monitor schedule gone.
+* Trigger type (raising, falling, either) can be specified for the external
+  interrupts port.
+* Receive block has new output: the time stamp of the message. 
+
+TrueTime 2.0 beta 1, 2009-01-14
+===============================
+New Kernel/Network block features:
+* Automatic connections between Kernel/Network/Send/Receive blocks
+  using hidden Goto/From blocks. The connections are configured in the
+  block dialogues. This makes it much easier to connect a kernel block
+  to several Network blocks. 
+* In the masks it is now possible to hide/show most block inputs and
+  outputs (removes the need for Ground and Terminator blocks).
+* Name changes: The ttGetMsg and ttSendMsg blocks are now called
+  TrueTime Send and TrueTime Receive instead.
+* The Receive block can output the timestamp of the message (telling 
+  when was sent).
+* The Send and Receive blocks now support vector data inputs and
+  outputs.
+* The time resolution of the kernel and network blocks is now
+  explicitely declared to be 1e-12.
+* New Ultrasound Network block.
+* Possibility to set initial seeds for the pseudo-random number
+  generators in the Network and Wireless network blocks.
+
+Changes in the Kernel block:
+* Number of analog inputs, outputs, external triggers, and network
+  connections are now configured in the block dialogue. ttInitKernel
+  has new syntax. ttInitNetwork and ttCreateExternalTrigger have been
+  replaced by ttAttachNetworkHandler and ttAttachTriggerHandler.
+  ttAttachNetworkHandler is optional (not needed if you use polling).
+* The same handler may now be associated with any number of interrupt
+  sources (network, trigger or wcet/deadline overrun). The more
+  general function ttGetInvoker replaces the old ttInvokingTask.
+* In the C++ API, new functions ttSetUserData and ttGetUserData can be
+  used for proper memory allocation/deallocation in init()/free(),
+  allowing multiple instances of the same block.
+* New functions ttCreateCBS/ttAttachCBS/ttSetCBSParameters can be used
+  for simulation of constant bandwidth servers. Under EDF scheduling, a
+  task associated with a CBS inherits the deadline of the CBS.
+* ttCreateJob can now be used to schedule future task instances.
+* Name changes: ttCreateInterruptHandler is now ttCreateHandler.
+  ttNonPreemptable is now ttNonPreemptible.
+* ttNonPreemptible now also works for interrupt handlers.
+* ttCreateLog now allows the creation of "free" logs, not associated
+  with any particular tasks. ttLogNow and ttLogValue are used to write
+  time or values to them.
+* ttCreateTask and ttCreatePeriodicTask no longer take the priority as
+  in input argument. Use ttSetPriority for each task if you want to
+  use fixed-priority scheduling.
+* Rate-monotonic scheduling did not make sense for aperiodic tasks and
+  has therefore been dropped - use deadline monotonic instead (by
+  default, deadline=period for periodic tasks anyway). 
+* A first release instance may now be specified for ttCreateTask.
+* ttUltrasoundPing is used to send a short pulse over an ultrasound
+  network. 
+* Complete re-implementation of handlers, timers and scheduling hooks.
+
+TrueTime 1.5, 2007-01-04
+=========================
+Features added:
+* Major performance improvements when using the network blocks. The simulation
+  time is now linear rather than exponential in the simulated time. (The poor
+  performance in previous versions was due to Matlab's memory management.)
+* Two new Simulink blocks added, making it easier to develop networked
+  applications. The two blocks makes it possible to send and receive network
+  messages without using kernel blocks and code functions. A related new
+  example is also added.
+* ttDiscardMessages now returns the total number of discarded messages.
+* ttGetInitArg (C++) primitive added.
+* New Mote Soccer example added, showing how many nodes can be configured
+  using the same init scripts and code functions.
+Bugs removed:
+* ttRetrieve gave a segmentation violation if ttFetch was not called properly.
+* ttTryFetch did not unblock tasks that were blocked on ttPost
+* ttTryPost did not unblock tasks that were blocked on ttFetch
+* ttFetch: A blocked writer was never woken up.
+* Segmentation violation when creating a timer using a non-existent interrupt
+  handler.
+* Propagation of clock drift from kernel nodes to network transmission
+  schedule.
+* 802.11 did not back off correctly on the first try when sensing that the 
+  medium was busy.
+* ttDiscardMessages did not work as expected with the wireless network.
+* ttLogNow, ttLogStart and ttLogStop sometimes wrong when using clock drift.
+* Switched Ethernet did not function properly
+
+TrueTime 1.4, 2006-09-21
+=========================
+* Support for blocking mailboxes (ttPost, ttFetch, ttRetrieve) added.
+* Support for semaphores (ttCreateSemaphore, ttTake, ttGive) added.
+* ttGetData and ttSetData primitives added.
+* ttAbortSimulation primitive added.
+* ttDiscardUnsentMessages primitive added.
+* Bug in ttwnetwork.cpp regarding probability of packet losses fixed.
+* Bug in ttwnetwork.cpp regarding the number of retransmissions fixed.
+* Bug in ttwnetwork.cpp and ttnetwork.cpp regarding deletion of
+  temporary global variables fixed.
+* Message lengths in ttSendMsg are now given in bits instead of bytes.
+* Support for user defined pathloss function added to the wireless
+  network block. It can only be used in the Matlab version.
+* Problem reading inputs at time zero fixed.
+* Major performance improvements (>100% speedup of the execution of the
+  kernel block) in the Matlab version.
+* New AODV routing example added.
+
+TrueTime 1.3, 2005-06-28
+=========================
+* Support for Matlab 6.1 (R12.1) has been dropped.
+* Added support for wireless networks.
+* Added support for Dynamic Voltage Scaling by the use of ttSetKernelParameter.
+* Added support for clock drift and offsets, configured in the kernel mask.
+* Added support for power consumption and batteries.
+* Added two new examples treating the wireless network block and power
+  consumption using batteries.
+* Added support for setting pre-and postdelay on a per node basis by using
+  ttSetNetworkParameter.
+
+TrueTime 1.2, 2004-10-15
+=========================
+* New internal data structures and a revised implementation of the 
+  kernel block S-function.
+* Support for Matlab 7.0 (R14), Matlab 6.5 (R13), and Matlab 6.1 (R12.1).
+* MATLAB help for the TrueTime commands, try for example
+
+  >> help ttInitKernel
+
+* Broadcast of network messages
+* Support for logging of task attributes
+* Arrival hook added. Usually coincides with the release hook unless there
+  is a pending job of the task when the new job is created. In that case the 
+  execution of the release hook will be postponed until the job is activated 
+  from the job queue. 
+* Syntax of ttCreateJob has been changed. ttCreateJob always creates a 
+  job at the current time. To create a job at a specific time, use a timer.
+* Two new tutorial examples included, treating task synchronization and 
+  deadline overrun handling.
+* Several bug fixes.
+
+TrueTime 1.13, 2003-10-23
+=========================
+* Changes in the network block:
+  - Automatic division of messages into frames has been removed. This feature
+    should be implemented by higher protocol layers in the computer nodes, if
+    desired. The "Max framesize" and "Frame overhead" parameters have
+    consequently been removed.
+  - Switched Ethernet has been added as a network type, with new parameters
+    describing the switch buffer memory.
+* Bug in ttCallBlockSystem fixed
+* ttmex command added
+
+TrueTime 1.12, 2003-08-06
+=========================
+* Minor bug workaround for Matlab 6.1 (R12.1) added
+
+TrueTime 1.11, 2003-06-24 
+=========================
+* Support for several network blocks in the same model
+* Improved error-handling, fail-safe execution flag removed
+* Common version for both Matlab 6.1 (R12.1) and Matlab 6.5 (R13)
+
+TrueTime 1.1, 2003-03-28 
+=========================
+* Major new release, new syntax
+
+TrueTime 1.0, 2002-07-18 
+========================
+* First release of TrueTime
